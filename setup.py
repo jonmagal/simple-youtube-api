@@ -61,21 +61,21 @@ requires = [
     "oauth2client>=4.1.3",
     "decorator>=4.4.0",
     "progressbar2>=3.42.0",
-    "pyser>=0.1.4",
+    "pyser @ git+https://github.com/jonmagal/pyser@7245188ce3a3df3019c7ca18e9d7ba8325f471e2",
 ]
 
 test_reqs = [
-    "pytest-cov>=2.5.1",
-    "pytest>=3.0.0",
-    "coveralls>=1.1,<3.0",
+    "pytest-cov>=6.2.1",
+    "pytest>=8.4.1",
+    "coveralls>=4.0.1,<5.0",
     "docutils>=0.14",
-    "rstcheck>=3.3.1",
+    "rstcheck>=3.4.0,<=5.0.0",
 ]
 
 doc_reqs = [
-    "sphinx_rtd_theme>=0.1.10b0S",
-    "Sphinx>=1.5.2",
-    "sphinx-autodoc-typehints>=1.10.3"
+    "sphinx_rtd_theme>=3.0.2",
+    "Sphinx>=3.4,<7.0",
+    "sphinx-autodoc-typehints>=1.10.3,<1.23"
 ]
 
 extra_reqs = {"doc": doc_reqs, "test": test_reqs}
