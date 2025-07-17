@@ -14,6 +14,7 @@ import httplib2
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 from googleapiclient.http import MediaFileUpload
+from oauth2client import tools
 
 from oauth2client.client import flow_from_clientsecrets
 from oauth2client.tools import run_flow
@@ -92,10 +93,9 @@ class Channel():
             if auth_local_webserver is False:
                 saved_argv = sys.argv
                 sys.argv = [sys.argv[0], "--noauth_local_webserver"]
-
+            
             flow = flow_from_clientsecrets(client_secret_path, scope=scope)
-            credentials = run_flow(flow, storage, http=httplib2.Http())
-
+            credentials = run_flow(flow, storage, http=httplib2.Http(), flags=tools.argparser.parse_known_args()[0])
             sys.argv = saved_argv
 
         self.channel = build(
