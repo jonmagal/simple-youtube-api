@@ -53,6 +53,7 @@ class Video():
         self.privacy_status = None
         self.public_stats_viewable = None
         self.publish_at = None
+        self.contains_synthetic_media = None
         self.status_set = False
 
     @video_snippet_set
@@ -145,6 +146,15 @@ class Video():
             raise Exception("Not valid privacy status: " + str(privacy_status))
 
         self.privacy_status = privacy_status
+
+    @video_status_set
+    def set_contains_synthetic_media(self, synthetic_media: bool):
+        """ Specifies if video contains realistic Altered or Synthetic content
+        """
+        if not isinstance(synthetic_media, bool):
+            raise Exception("Synthetic media must be a boolean")
+
+        self.contains_synthetic_media = synthetic_media
 
     @video_status_set
     def set_public_stats_viewable(self, viewable: bool):

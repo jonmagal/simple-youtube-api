@@ -248,6 +248,8 @@ def generate_upload_body(video):
             status.update({"publishAt": video.publish_at})
         if video.self_declared_made_for_kids is not None:
             status.update({"selfDeclaredMadeForKids": video.self_declared_made_for_kids})
+        if video.contains_synthetic_media is not None:
+            status.update({"containsSyntheticMedia": video.contains_synthetic_media})
         body.update({"status": status})
 
     return body
